@@ -1,0 +1,689 @@
+$def with (data,squery)
+
+<html>
+<head>
+	<title>rtnf_</title>
+
+	<link rel="shortcut icon" type="image/png" href="/static/logo.png"/>
+	<style>
+	.itemlist {
+    display: block;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    font-size: 15px;
+    color: rgba(0,0,0,.87);
+    padding: 8px 0px;
+    border-top: 1px solid #ebebeb;
+    width: 807px;
+    padding-left: 24px;
+    border-left: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
+    font-weight: 500;
+    padding-right: 18px;
+	}
+
+	.itemlist:hover{
+		background-color:#eee;
+		cursor:pointer; 
+	}
+
+	.container {
+		margin-left: 376px;
+		border-bottom: 1px solid #ebebeb;
+    width: 676px;
+    margin-top:100px;
+	}
+
+	.search {
+    position: fixed;
+    top: 17px;
+    right: 33px;
+    padding: 10px;
+    width: 265px;
+    display: none;
+	}
+
+	.kpanel{
+    position: fixed;
+    top: 72px;
+    right: 84px;
+    width: 454px;
+    height: auto;
+    border: 1px solid #ebebeb;
+    border-radius: 9px;
+    padding-bottom: 27px;
+	}
+
+	.kpanel-title{
+		color: rgba(0,0,0,.87);
+    line-height: 1.2;
+    font-family: arial,sans-serif-light,sans-serif;
+    font-size: 21px;
+    font-weight: normal;
+    padding-top: 34px;
+    padding-left: 23px;
+    padding-right: 20px;
+	}
+
+	.kpanel-content{
+		padding-left: 23px;
+    color: rgba(0,0,0,.87);
+    line-height: 1.4;
+    font-family: arial,sans-serif-light,sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    padding-top: 6px;
+	}
+
+
+	#k-subtitle{
+		color: #777;
+    font-family: arial,sans-serif;
+    line-height: 1.24;
+    font-size: 15px;
+    margin-top: 8px;
+	}
+
+	.k-line{
+		border : 0.5px solid #ebebeb;
+		margin-top:23px;
+	}
+
+	.pred{
+		font-weight: bolder;
+	}
+
+	.hidden{
+		color:white;
+	}
+
+	.button{
+		border-radius: 3px;
+    background-color: #eff3f6;
+    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+    color: #24292e;
+    width: 60px;
+    padding: 9px 13px;
+    border: 1px solid #cacaca;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+    margin-left: 0px;
+    margin-left: 13px;
+    margin-top: 19px;
+    
+	}
+
+	.button:hover{
+		box-shadow: 0 0 0 0.2em rgba(3,102,214,.3);
+		cursor:pointer;
+	}
+
+	.addtag{
+    width: 328px;
+    margin-left: 19px;
+    margin-top: 11px;
+    height: 31px;
+    padding-left: 37px;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    background: url(img/tag.png) no-repeat 8px center;
+    background-size: 20px;
+    background-position-y: 3px;
+	}
+
+	.searchtagresult_container{
+		position: absolute;
+    left: 20px;
+    width: 326px;
+    margin-top: 3px;
+    box-shadow: 0 1px 7px rgba(0,0,0,0.1);
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    background-color: white;
+    z-index: 1;
+    display: none;
+	}
+
+.searchtagresult{
+	list-style: none;
+    border-bottom: 1px solid #cacaca;
+    height: 49px;
+    cursor:pointer;
+}
+
+.searchtagresult:hover{
+	background-color: #eee;
+}
+
+.searchtagresult h1{
+    color: rgba(0,0,0,.87);
+    line-height: 1.2;
+    font-family: arial,sans-serif-light,sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    padding: 8px;
+    padding-left: 17px;
+}
+
+.searchtagresult h2{
+	 color: #777;
+   font-family: arial,sans-serif;
+   line-height: 1.24;
+    font-size: 13px;
+    margin: 0;
+    font-weight: lighter;
+    padding-left: 17px;
+    margin-top: -9px;
+}
+
+.tag{
+	padding: 4px 6px;
+  border: 1px solid #eee;
+  line-height: 35px;
+  border-radius: 2px;
+}
+
+.tagcontainer{
+	margin-top: 1px;
+    padding-right: 24px;
+}
+
+.topik{
+	padding-bottom: 5px;
+}
+
+.itemlist h5{
+	font-size:20px;
+	margin:0px;
+	font-weight: 600;
+	margin-bottom: 7px;
+  margin-top: 4px;
+
+}
+
+.itemlist h4{
+	margin: 0px;
+	font-weight:normal;
+}
+
+#sidebar {
+	position: fixed;
+	height: 100%;
+	width:256px;
+background-color: rgb(35, 40, 45);
+	top:0px;
+	left:0px;
+	  z-index: 999;
+}
+
+#sidebar img {
+    width: 127px;
+    padding-left: 60px;
+    padding-top: 41px;
+    padding-bottom: 34px;
+
+}
+
+#menus {
+	margin-top:30px;
+}
+
+.blockmenu {
+	height: 40px;
+  padding-left: 41px;
+  font-family: helvetica;
+  color: #e2e1e6;
+  padding-top: 20px;
+
+}
+
+.blockmenu:hover{
+    background-color: rgb(19, 112, 165);
+    border-left: 3px solid #aed3e4;
+	padding-left: 38px;
+}
+
+.active{
+    background-color: rgb(19, 112, 165);
+    border-left: 3px solid #aed3e4;
+	padding-left: 38px;
+}
+
+
+a {
+	text-decoration: none;
+}
+
+#wikitext {
+	font-family: sans-serif;
+	font-size:15px;
+	font-weight: 400;	
+	color: #222222;
+  line-height: 1.5;
+
+}
+
+.indent {
+    margin-left: 22px!important;
+}
+
+#ontology_view p,ul {
+	margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#ontology_view {
+width: 736px;
+    margin-left: 359px;
+    padding-top: 98px;
+    background-color: white;
+    padding-right: 109px;
+    padding-left: 40px;
+    top: 0px;
+    padding-bottom: 500px;
+    position: fixed;
+}
+
+#ontology_title {
+	font-family: Arial,Helvetica,sans-serif;
+	line-height: 32px;
+    margin: 0px;
+    font-size: 25px;
+    font-weight: normal;
+    margin-top: -12px;
+    max-width: 742px;
+    margin-bottom: 27px;
+}
+
+#ontology_class {
+	margin-bottom: 14px;
+    font-family: sans-serif;
+}
+
+#listofbooks {
+	display: block;
+  position: absolute;
+  z-index: 22;
+  background-color: white;
+}
+
+#ontology_view img {
+	    position: fixed;
+    width: 42px;
+    top: 91px;
+    right: 144px;
+}
+
+#backbutton:hover{
+	cursor: pointer;
+	filter: sepia(100%);
+}
+
+#topbar {
+	position: fixed;
+	top:0px;
+	left:0px;
+	z-index: 220;
+	width: 100%;
+	height: 72px;
+	border-bottom: 3px solid rgb(247,247,247) ;
+	    background-color: white;
+}
+
+#searchbox {
+	margin-left: 334px;
+    margin-top: 17px;
+    padding: 11px;
+    width: 600px;
+    border: 1px solid #cacaca;
+    border-radius: 5px;
+    padding-left: 25px;
+}
+
+#ontology_cover{
+    width: 659px;
+    height: 100%;
+    background-color: white;
+    z-index: 99;
+    position: fixed;
+}
+
+	</style>
+	
+</head>
+
+<body>
+
+<div class="header"></div>
+
+<div id="sidebar">
+	<img src="/static/logo.png">	
+	<div id="menus">
+		<a href="/topik"><div class="blockmenu "> Topik </div></a>
+		<a href="/domain"><div class="blockmenu "> Domain </div></a>
+		<a href="/"><div class="blockmenu "> Tugas Akhir </div></a>
+		<div class="blockmenu active">Search Result </div>
+	</div>
+
+</div>
+
+<div id="topbar">
+<input id="searchbox" type="text" style='display:block' placeholder="Search" onkeypress="search(event)">
+</div>
+
+
+<!--Search Bar-->
+<input type="text" class="search" onkeyup="search(this)">
+
+<!--Panel -->
+<div class="kpanel" id="kpnl" style="display:none">
+	<div class="kpanel-title">
+		<div id="k-title"></div>
+		<div id="k-subtitle">Tugas Akhir</div>
+	</div>
+	<hr class="k-line">
+	<div class="kpanel-content" id="k-con">
+	</div>
+	<hr class="k-line" style="margin-top:12px ">
+	<input type="text" class="addtag" id="addtag_textbox" placeholder="Add Tag" onkeyup="searchtag(this)" ">
+
+	<div class="searchtagresult_container" id="searchtagresult_containerID">
+		<li class="searchtagresult"><h1>Petri Net</h1><h2>Buat Tag Baru</h2> </li>
+	</div>
+</div>
+
+
+
+<div class='container' id='listofbook' >
+
+<div id='listofbooks' >
+$for i in data:
+	<div class='itemlist' id="$i"  onclick='getinfo(this.id)'> <h5 id="judul_$i">$data[i].judul</h5> 
+		<h4 id="penulis_$i">$data[i].penulis</h4> 
+		$for x in data[i].pembimbing:
+			<h4 class="pembimbing_$i">$x</h4>
+	</div>
+</div>
+
+</div>
+<div id='ontology_view' style='z-index: 20' >
+	<div id="ontology_cover"></div>
+	<img id="backbutton" src="/static/close.png" onclick="hideOntology()" >
+	<div id='wikititle'>
+		<div class='pagegroup' id="ontology_class"><a href="/">Tugas Akhir</a></div>
+		<h1 class='pagetitle' id="ontology_title"></h1>
+	</div>
+	<div id='wikitext'>
+	<p><strong>Penulis</strong></p>
+	<div class='indent' id="penulis"></div>
+	<p><strong>Pembimbing</strong></p>
+	<div class='indent'><a class='wikilink' href='http://localhost/r/Main/WindyGambetta' id="pem1"></a></div>
+	<div class='indent'><a class='wikilink' href='http://localhost/r/Main/WindyGambetta' id="pem2"></a></div>
+	<p><strong>Kode Buku</strong></p>
+	<div class='indent' id="kode"></div>
+	<div class='vspace'></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+<script>
+var previousNode = 4225;
+var currentNode = 1;
+
+
+var node = document.getElementById("searchbox")
+node.value = "$squery"
+
+
+//Shortcut Functionality
+//Ctrl + . = New node
+//Only work for main namespace :(
+document.onkeyup = function(e) {
+ 	if (e.ctrlKey && e.which == 188) {
+		showList()
+		hideOntology()
+		console.log("aaa")
+	}
+};
+
+
+
+
+
+//Filter list of item, based on search query
+function filter(x){
+	var nodeList = document.getElementsByClassName("itemlist");
+	for (i = 0 ; i <nodeList.length;i++){
+		document.getElementById(nodeList[i].id).style.display = "none";
+		title = nodeList[i].textContent;
+		title = title.toLowerCase();
+		x = x.toLowerCase();
+		if (title.indexOf(x) !== -1){
+			console.log(title);
+			console.log(nodeList[i].id)
+			document.getElementById(nodeList[i].id).style.display = "block";
+		}
+	}
+}
+
+//When enter pressed, search..
+function search(ele){
+	if(event.key === 'Enter'){
+		var node = document.getElementById("searchbox")
+		console.log(node.value)
+		window.location = "/search/"+node.value
+		//filter(ele.value);
+	}
+}
+
+function hideSearchTagResult(){
+	var node = document.getElementById("searchtagresult_containerID");
+	node.style.display = "none";
+	node.innerHTML = '';
+}
+
+function showSearchTagResult(){
+	var node = document.getElementById("searchtagresult_containerID");
+	node.style.display = "block";
+}
+
+function connectNodeTag(nodeTagID){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+			console.log(this.responseText.trim())
+			getinfo(currentNode)
+		}
+	}
+	uristring = 'service.php?command=connect&nodebook=' + currentNode +'&nodetag='+nodeTagID;
+	xhttp.open("GET",uristring,true);
+	xhttp.send();
+
+}
+
+function addnewtag(tagname){
+	console.log(tagname)
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+			nodeTagID = this.responseText.trim()
+			console.log(nodeTagID)
+			connectNodeTag(nodeTagID)
+		}
+	}
+	uristring = 'service.php?command=add_new_node_tag&nodetag=' + tagname;
+	xhttp.open("GET",uristring,true);
+	xhttp.send();
+}
+
+
+function searchtag(ele){
+	console.log(ele.value);
+	console.log(ele.value.length)
+	if (ele.value.length == 0){
+		hideSearchTagResult()
+	}
+	else{
+			var tagname = ele.value;
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+			console.log("we got"+this.responseText)
+			if(this.responseText.trim() == "n"){
+				console.log("Failed!")
+
+			var str1 = "<li class='searchtagresult' onclick='addnewtag(\""+tagname.trim()+"\")'> <h1>"+tagname+"</h1><h2>Buat Tag Baru</h2></li>"
+			let frag = document.createRange().createContextualFragment(str1);
+			var node = document.getElementById("searchtagresult_containerID");
+			node.innerHTML = '';
+			node.appendChild(frag);
+			showSearchTagResult()
+			}
+			else{
+				console.log("lol!")
+				var searchedTags = JSON.parse(this.responseText);
+				var tags = searchedTags.tags;
+				var str1 = "";
+				for(i=0;i<tags.length ; i++){
+					str1 += "<li class='searchtagresult' onclick='connectNodeTag("+tags[i].id+")'> <h1>"+tags[i].name+"</h1><h2></h2></li>"
+					console.log(str1)
+				}
+				str1 += "<li class='searchtagresult' onclick='addnewtag(\""+tagname.trim()+"\")'> <h1>"+tagname+"</h1><h2>Buat Tag Baru</h2></li>"
+				let frag = document.createRange().createContextualFragment(str1);
+
+				var node = document.getElementById("searchtagresult_containerID");
+				node.innerHTML = '';
+				node.appendChild(frag);
+				showSearchTagResult()	
+
+
+			}
+		}
+	}
+	uristring = 'service.php?command=search_tag&nodetag=' + tagname;
+	xhttp.open("GET",uristring,true);
+	xhttp.send();
+
+	}
+}
+
+
+function hideList(){
+	var node = document.getElementById("listofbooks")
+}
+
+function showOntology(){
+	var node = document.getElementById("ontology_view")
+	node.style.zIndex = "99"
+	var node = document.getElementById("ontology_cover")
+	node.style.display = "none"
+}
+
+
+
+function showList(){
+	var node = document.getElementById("listofbooks")
+
+}
+
+
+
+
+function hideOntology(){
+	var node = document.getElementById("ontology_view")
+	node.style.zIndex = "1"
+	var node = document.getElementById("ontology_cover")
+	node.style.display = "block"
+}
+
+
+
+//Get node full detail by requesting via AJAX
+function getinfo(id){
+	hideList()
+
+	console.log(id)
+	var nodejudul = document.getElementById("judul_"+id)
+	var nodepenulis = document.getElementById("penulis_"+id)
+	var nodepembimbing = document.getElementsByClassName("pembimbing_"+id)
+	for (i=0;i<nodepembimbing.length; ++i){
+		console.log(nodepembimbing[i].innerHTML)
+	}
+	console.log(nodejudul.innerHTML)
+	console.log(nodepenulis.innerHTML)
+
+
+	var target_judul = document.getElementById("ontology_title")
+	target_judul.innerHTML = nodejudul.innerHTML
+	var target_penulis = document.getElementById("penulis")
+	target_penulis.innerHTML = nodepenulis.innerHTML
+	var  target_kode = document.getElementById("kode")
+	target_kode.innerHTML = id
+	var target_pembimbing = document.getElementById("pem1")
+	target_pembimbing.style.display = "none"
+	var target_pembimbing = document.getElementById("pem2")
+	target_pembimbing.style.display = "none"
+	for (i=0;i<nodepembimbing.length; ++i){
+		console.log(nodepembimbing[i].innerHTML)
+		var counter = i + 1
+		var target_pembimbing = document.getElementById("pem"+counter)
+		target_pembimbing.innerHTML= nodepembimbing[i].innerHTML
+		target_pembimbing.style.display = "block"
+	}
+		showOntology()
+
+}
+
+
+//Connect node to node_tag
+function ontologyconnect(ele){
+	console.log(currentNode)
+	console.log(document.getElementById("addtag_textbox").value)
+	node = currentNode;
+	nodetag = document.getElementById("addtag_textbox").value;
+	var xhttp = new XMLHttpRequest();
+	uristring = 'service.php?command=add_new_node_tag&nodetag=' +nodetag ;
+	xhttp.open("GET",uristring,true);
+	xhttp.send();
+
+	xhttp.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+			console.log(this.responseText)
+			if(this.responseText = 'n'){
+				console.log("nope!")
+
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+	</script>

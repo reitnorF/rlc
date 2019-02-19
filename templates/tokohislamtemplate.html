@@ -1,0 +1,635 @@
+$def with (data)
+
+<html>
+<head>
+	<title>Salman Reading Corner</title>
+	<link rel="shortcut icon" type="image/png" href="/static/logox2.png"/>
+	<link rel="stylesheet" type="text/css" href="/static/perpusstyle.css"/>
+</head>
+
+<body>
+
+<div class="header"></div>
+
+<div id="sidebar">
+	<img src="/static/slc_logo.png">	
+	<div id="menus">
+		<a href="/topik"><div class="blockmenu "> Daftar Topik Islam </div></a>
+		<a href="/tokohislam"><div class="blockmenu active  "> Biografi Tokoh Islam</div></a>
+		<a href="/umum"><div class="blockmenu  "> Daftar Topik Umum </div></a>
+		<a href="/"><div class="blockmenu ">Daftar Buku</div></a>
+	</div>
+
+</div>
+
+<div id="topbar">
+<input id="searchbox" type="text" style='display:block' placeholder="Search" onkeypress="search(event)">
+</div>
+
+
+<!--Search Bar-->
+<input type="text" class="search" onkeyup="search(this)">
+
+<!--Panel -->
+<div class="kpanel" id="kpnl" style="display:none">
+	<div class="kpanel-title">
+		<div id="k-title"></div>
+		<div id="k-subtitle">Tugas Akhir</div>
+	</div>
+	<hr class="k-line">
+	<div class="kpanel-content" id="k-con">
+	</div>
+	<hr class="k-line" style="margin-top:12px ">
+	<input type="text" class="addtag" id="addtag_textbox" placeholder="Add Tag" onkeyup="searchtag(this)" ">
+
+	<div class="searchtagresult_container" id="searchtagresult_containerID">
+		<li class="searchtagresult"><h1>Petri Net</h1><h2>Buat Tag Baru</h2> </li>
+	</div>
+</div>
+
+
+
+<div class='container' id='listofbook' >
+
+<div id='listofbooks' >
+
+	<a href="/search/muhammad">
+	<div class='itemlist'> <h5 id="judul">Nabi Muhammad SAW</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/ibrahim as">
+	<div class='itemlist'> <h5 id="judul">Nabi Ibrahim</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+
+	<a href="/search/nabi sulaiman|king sulaiman">
+	<div class='itemlist'> <h5 id="judul">Nabi Sulaiman</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/khidir">
+	<div class='itemlist'> <h5 id="judul">Nabi Khidir</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/nabi isa|yesus">
+	<div class='itemlist'> <h5 id="judul">Nabi Isa</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/ adam">
+	<div class='itemlist'> <h5 id="judul">Nabi Adam</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/daud|david">
+	<div class='itemlist'> <h5 id="judul">Nabi Daud</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/idris">
+	<div class='itemlist'> <h5 id="judul">Nabi Idris</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+
+	<a href="/search/ayyub &">
+	<div class='itemlist'> <h5 id="judul">Nabi Ayyub</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/khadijah">
+	<div class='itemlist'> <h5 id="judul">Khadijah</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/abu bakar|abu bakr">
+	<div class='itemlist'> <h5 id="judul">Abu Bakar Ash-Shiddiq</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/umar bin khattab|omar">
+	<div class='itemlist'> <h5 id="judul">Umar bin Khattab</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/ali bin abi thalib">
+	<div class='itemlist'> <h5 id="judul">Ali bin Abi Thalib</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/aisyah">
+	<div class='itemlist'> <h5 id="judul">Aisyah</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/khalid">
+	<div class='itemlist'> <h5 id="judul">Khalid bin Walid</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/thariq bin ziyad">
+	<div class='itemlist'> <h5 id="judul">Thariq bin Ziyad</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	
+
+	<a href="/search/imam malik">
+	<div class='itemlist'> <h5 id="judul">Imam Malik</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/imam syafi'i">
+	<div class='itemlist'> <h5 id="judul">Imam Syafi'i</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/ibnu katsir">
+	<div class='itemlist'> <h5 id="judul">Ibnu Katsir</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+<a href="/search/al ghazali">
+	<div class='itemlist'> <h5 id="judul">Al Ghazali</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/hambali">
+	<div class='itemlist'> <h5 id="judul">Imam Hambali</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/takdir">
+	<div class='itemlist'> <h5 id="judul">Takdir</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/tawakal">
+	<div class='itemlist'> <h5 id="judul">Tawakkal</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+
+	<a href="/search/wudhu">
+	<div class='itemlist'> <h5 id="judul">Wudhu</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/riba">
+	<div class='itemlist'> <h5 id="judul">Riba</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/qurban|kurban">
+	<div class='itemlist'> <h5 id="judul">Qurban</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/aqiqah|akikah">
+	<div class='itemlist'> <h5 id="judul">Aqiqah</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/ghibah">
+	<div class='itemlist'> <h5 id="judul">Ghibah</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/riya">
+	<div class='itemlist'> <h5 id="judul">Riya</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+
+	<a href="/search/dakwah">
+	<div class='itemlist'> <h5 id="judul">Dakwah</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/fikih">
+	<div class='itemlist'> <h5 id="judul">Fikih</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/hijab">
+	<div class='itemlist'> <h5 id="judul">Hijab</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/tasawuf">
+	<div class='itemlist'> <h5 id="judul">Tasawuf</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/sufi">
+	<div class='itemlist'> <h5 id="judul">Sufi</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/ijtihad">
+	<div class='itemlist'> <h5 id="judul">Ijtihad</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/waris">
+	<div class='itemlist'> <h5 id="judul">Hukum Waris</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/bid'ah">
+	<div class='itemlist'> <h5 id="judul">Bidah</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/syirik">
+	<div class='itemlist'> <h5 id="judul">Syirik</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+
+
+	<a href="/search/sunni">
+	<div class='itemlist'> <h5 id="judul">Sunni</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/salaf">
+	<div class='itemlist'> <h5 id="judul">Salaf</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/wahabi|wahhabi">
+	<div class='itemlist'> <h5 id="judul">Wahabi</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/khawarij">
+	<div class='itemlist'> <h5 id="judul">Khawarij</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/syiah">
+	<div class='itemlist'> <h5 id="judul">Syiah</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/muhammadiyah">
+	<div class='itemlist'> <h5 id="judul">Muhammadiyah</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/NII">
+	<div class='itemlist'> <h5 id="judul">NII</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/ikhwanul">
+	<div class='itemlist'> <h5 id="judul">Ikhwanul Muslimin</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+	<a href="/search/ICMI">
+	<div class='itemlist'> <h5 id="judul">ICMI</h5> 
+		<h4 id="penulis"></h4> 
+	</div>
+	</a>
+
+
+
+
+
+</div>
+
+</div>
+<div id='ontology_view' style='z-index: 20' >
+	<div id="ontology_cover"></div>
+	<img id="backbutton" src="/static/close.png" onclick="hideOntology()" >
+	<div id='wikititle'>
+		<div class='pagegroup' id="ontology_class"><a href="/">Tugas Akhir</a></div>
+		<h1 class='pagetitle' id="ontology_title"></h1>
+	</div>
+	<div id='wikitext'>
+	<p><strong>Penulis</strong></p>
+	<div class='indent' id="penulis"></div>
+	<p><strong>Pembimbing</strong></p>
+	<div class='indent'><a class='wikilink' href='http://localhost/r/Main/WindyGambetta' id="pem1"></a></div>
+	<div class='indent'><a class='wikilink' href='http://localhost/r/Main/WindyGambetta' id="pem2"></a></div>
+	<p><strong>Kode Buku</strong></p>
+	<div class='indent' id="kode"></div>
+	<div class='vspace'></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+<script>
+var previousNode = 4225;
+var currentNode = 1;
+
+//Shortcut Functionality
+//Ctrl + . = New node
+//Only work for main namespace :(
+document.onkeyup = function(e) {
+ 	if (e.ctrlKey && e.which == 188) {
+		showList()
+		hideOntology()
+		console.log("aaa")
+	}
+};
+
+
+
+
+
+
+
+//Filter list of item, based on search query
+function filter(x){
+	var nodeList = document.getElementsByClassName("itemlist");
+	for (i = 0 ; i <nodeList.length;i++){
+		document.getElementById(nodeList[i].id).style.display = "none";
+		title = nodeList[i].textContent;
+		title = title.toLowerCase();
+		x = x.toLowerCase();
+		if (title.indexOf(x) !== -1){
+			console.log(title);
+			console.log(nodeList[i].id)
+			document.getElementById(nodeList[i].id).style.display = "block";
+		}
+	}
+}
+
+//When enter pressed, search..
+function search(ele){
+	if(event.key === 'Enter'){
+		var node = document.getElementById("searchbox")
+		console.log(node.value)
+		window.location = "/search/"+node.value
+		//filter(ele.value);
+	}
+}
+
+function moveIt(q){
+	window.location = "/search/"+ q
+}
+
+
+
+function hideSearchTagResult(){
+	var node = document.getElementById("searchtagresult_containerID");
+	node.style.display = "none";
+	node.innerHTML = '';
+}
+
+function showSearchTagResult(){
+	var node = document.getElementById("searchtagresult_containerID");
+	node.style.display = "block";
+}
+
+function connectNodeTag(nodeTagID){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+			console.log(this.responseText.trim())
+			getinfo(currentNode)
+		}
+	}
+	uristring = 'service.php?command=connect&nodebook=' + currentNode +'&nodetag='+nodeTagID;
+	xhttp.open("GET",uristring,true);
+	xhttp.send();
+
+}
+
+function addnewtag(tagname){
+	console.log(tagname)
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+			nodeTagID = this.responseText.trim()
+			console.log(nodeTagID)
+			connectNodeTag(nodeTagID)
+		}
+	}
+	uristring = 'service.php?command=add_new_node_tag&nodetag=' + tagname;
+	xhttp.open("GET",uristring,true);
+	xhttp.send();
+}
+
+
+function searchtag(ele){
+	console.log(ele.value);
+	console.log(ele.value.length)
+	if (ele.value.length == 0){
+		hideSearchTagResult()
+	}
+	else{
+			var tagname = ele.value;
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+			console.log("we got"+this.responseText)
+			if(this.responseText.trim() == "n"){
+				console.log("Failed!")
+
+			var str1 = "<li class='searchtagresult' onclick='addnewtag(\""+tagname.trim()+"\")'> <h1>"+tagname+"</h1><h2>Buat Tag Baru</h2></li>"
+			let frag = document.createRange().createContextualFragment(str1);
+			var node = document.getElementById("searchtagresult_containerID");
+			node.innerHTML = '';
+			node.appendChild(frag);
+			showSearchTagResult()
+			}
+			else{
+				console.log("lol!")
+				var searchedTags = JSON.parse(this.responseText);
+				var tags = searchedTags.tags;
+				var str1 = "";
+				for(i=0;i<tags.length ; i++){
+					str1 += "<li class='searchtagresult' onclick='connectNodeTag("+tags[i].id+")'> <h1>"+tags[i].name+"</h1><h2></h2></li>"
+					console.log(str1)
+				}
+				str1 += "<li class='searchtagresult' onclick='addnewtag(\""+tagname.trim()+"\")'> <h1>"+tagname+"</h1><h2>Buat Tag Baru</h2></li>"
+				let frag = document.createRange().createContextualFragment(str1);
+
+				var node = document.getElementById("searchtagresult_containerID");
+				node.innerHTML = '';
+				node.appendChild(frag);
+				showSearchTagResult()	
+
+
+			}
+		}
+	}
+	uristring = 'service.php?command=search_tag&nodetag=' + tagname;
+	xhttp.open("GET",uristring,true);
+	xhttp.send();
+
+	}
+}
+
+
+function hideList(){
+	var node = document.getElementById("listofbooks")
+}
+
+function showOntology(){
+	var node = document.getElementById("ontology_view")
+	node.style.zIndex = "99"
+	var node = document.getElementById("ontology_cover")
+	node.style.display = "none"
+}
+
+
+
+function showList(){
+	var node = document.getElementById("listofbooks")
+
+}
+
+
+
+
+function hideOntology(){
+	var node = document.getElementById("ontology_view")
+	node.style.zIndex = "1"
+	var node = document.getElementById("ontology_cover")
+	node.style.display = "block"
+}
+
+
+
+//Get node full detail by requesting via AJAX
+function getinfo(id){
+	hideList()
+
+	console.log(id)
+	var nodejudul = document.getElementById("judul_"+id)
+	var nodepenulis = document.getElementById("penulis_"+id)
+	var nodepembimbing = document.getElementsByClassName("pembimbing_"+id)
+	for (i=0;i<nodepembimbing.length; ++i){
+		console.log(nodepembimbing[i].innerHTML)
+	}
+	console.log(nodejudul.innerHTML)
+	console.log(nodepenulis.innerHTML)
+
+
+	var target_judul = document.getElementById("ontology_title")
+	target_judul.innerHTML = nodejudul.innerHTML
+	var target_penulis = document.getElementById("penulis")
+	target_penulis.innerHTML = nodepenulis.innerHTML
+	var  target_kode = document.getElementById("kode")
+	target_kode.innerHTML = id
+	var target_pembimbing = document.getElementById("pem1")
+	target_pembimbing.style.display = "none"
+	var target_pembimbing = document.getElementById("pem2")
+	target_pembimbing.style.display = "none"
+	for (i=0;i<nodepembimbing.length; ++i){
+		console.log(nodepembimbing[i].innerHTML)
+		var counter = i + 1
+		var target_pembimbing = document.getElementById("pem"+counter)
+		target_pembimbing.innerHTML= nodepembimbing[i].innerHTML
+		target_pembimbing.style.display = "block"
+	}
+		showOntology()
+
+}
+
+
+//Connect node to node_tag
+function ontologyconnect(ele){
+	console.log(currentNode)
+	console.log(document.getElementById("addtag_textbox").value)
+	node = currentNode;
+	nodetag = document.getElementById("addtag_textbox").value;
+	var xhttp = new XMLHttpRequest();
+	uristring = 'service.php?command=add_new_node_tag&nodetag=' +nodetag ;
+	xhttp.open("GET",uristring,true);
+	xhttp.send();
+
+	xhttp.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+			console.log(this.responseText)
+			if(this.responseText = 'n'){
+				console.log("nope!")
+
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+	</script>
