@@ -206,7 +206,7 @@
 background-color: rgb(70, 71, 89);
 	top:0px;
 	left:0px;
-	  z-index: 999;
+	  z-index: 221;
 }
 
 #sidebar img {
@@ -342,4 +342,77 @@ width: 736px;
     background-color: white;
     z-index: 99;
     position: fixed;
+}
+
+
+#x{
+    position: fixed;
+    top:30px;
+    right: 40px;
+    display: none;
+    z-index: 222;
+}
+
+#logosmall, #bread{
+    display: none;
+}
+
+
+
+@media screen and (max-width : 800px){
+    #sidebar {
+        display: none;
+        width: 100%
+    }
+
+    #topbar {
+        background-color: #464759;
+    }
+
+    #logosmall{
+        display: block;
+        position: fixed;
+        width: 59px;
+        margin-left: 2%;
+        margin-top: 9px;
+    }
+
+    #bread{
+        display: block;
+        top: 10px;
+        position: fixed;
+    right: 3%;
+    width: 47px;
+    }
+
+
+
+    .itemlist{
+        width: 80%;
+        margin: 0 auto;
+    }
+    #listofbook{
+        width: 100%;
+        margin: 0 auto
+    }
+
+
+    #searchbox {
+        margin: 15 auto;
+        width: 70%;
+    }
+
+    #listofbooks {
+        margin-top:90px;
+        width:100%;
+    }
+
+    #ontology_view {
+        width: 84%;
+        margin:0 auto;
+    }
+
+    #ontology_view img {
+        right : 2%;
+    }
 }

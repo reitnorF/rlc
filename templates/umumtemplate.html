@@ -22,8 +22,13 @@ $def with (data)
 
 </div>
 
+<img id="x" src="/static/x.png" onclick="hidemenu()">
+
 <div id="topbar">
-<input id="searchbox" type="text" style='display:block' placeholder="Search" onkeypress="search(event)">
+	<img id="logosmall" src="/static/src_logo_small.png" >	
+	<input id="searchbox" type="text" style='display:block' placeholder="Search" onkeypress="search(event)">
+	<img id="bread" src="/static/menu.png" onclick="displaymenu()" >
+	
 </div>
 
 
@@ -53,26 +58,26 @@ $def with (data)
 
 <div id='listofbooks' >
 
-	<a href="/search/fisika">
+	<a href="/searchjudul/fisika">
 	<div class='itemlist'> <h5 id="judul">Fisika</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/kimia">
+	<a href="/searchjudul/kimia">
 	<div class='itemlist'> <h5 id="judul">Kimia</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
 
-	<a href="/search/matematika|kalkulus">
+	<a href="/searchjudul/matematika|kalkulus">
 	<div class='itemlist'> <h5 id="judul">Matematika</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/astronomi">
+	<a href="/searchjudul/astronomi">
 	<div class='itemlist'> <h5 id="judul">Astronomi</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
@@ -80,150 +85,150 @@ $def with (data)
 
 
 
-	<a href="/search/bahasa arab|nahwu|sharaf|shorof">
+	<a href="/searchjudul/bahasa arab|nahwu|sharaf|shorof">
 	<div class='itemlist'> <h5 id="judul">Bahasa Arab</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/bahasa indonesia">
+	<a href="/searchjudul/bahasa indonesia">
 	<div class='itemlist'> <h5 id="judul">Bahasa Indonesia</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/bahasa inggris|toefl	">
+	<a href="/searchjudul/bahasa inggris|toefl	">
 	<div class='itemlist'> <h5 id="judul">Bahasa Inggris</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/bahasa jepang">
+	<a href="/searchjudul/bahasa jepang">
 	<div class='itemlist'> <h5 id="judul">Bahasa Jepang</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/mandarin">
+	<a href="/searchjudul/mandarin">
 	<div class='itemlist'> <h5 id="judul">Bahasa Mandarin</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/sunda">
+	<a href="/searchjudul/sunda">
 	<div class='itemlist'> <h5 id="judul">Bahasa Sunda</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/investasi">
+	<a href="/searchjudul/investasi">
 	<div class='itemlist'> <h5 id="judul">Investasi</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/ekonomi syariah|bank|mudharabah|asuransi takaful|fiqih finansial">
+	<a href="/searchjudul/ekonomi syariah|bank|mudharabah|asuransi takaful|fiqih finansial">
 	<div class='itemlist'> <h5 id="judul">Ekonomi</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/kesehatan">
+	<a href="/searchjudul/kesehatan">
 	<div class='itemlist'> <h5 id="judul">Kesehatan</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/politik">
+	<a href="/searchjudul/politik">
 	<div class='itemlist'> <h5 id="judul">Politik</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/ilmu|pendidikan">
+	<a href="/searchjudul/ilmu|pendidikan">
 	<div class='itemlist'> <h5 id="judul">Pendidikan</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/soekarno | bung karno">
+	<a href="/searchjudul/soekarno | bung karno">
 	<div class='itemlist'> <h5 id="judul">Soekarno</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/soeharto">
+	<a href="/searchjudul/soeharto">
 	<div class='itemlist'> <h5 id="judul">Soeharto</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/habibie">
+	<a href="/searchjudul/habibie">
 	<div class='itemlist'> <h5 id="judul">B.J. Habibie</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/shalahuddin|saladin">
+	<a href="/searchjudul/shalahuddin|saladin">
 	<div class='itemlist'> <h5 id="judul">Shalahuddin Al Ayyubi</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/gengis khan">
+	<a href="/searchjudul/gengis khan">
 	<div class='itemlist'> <h5 id="judul">Gengis Khan</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/cut nyak">
+	<a href="/searchjudul/cut nyak">
 	<div class='itemlist'> <h5 id="judul">Cut Nyak Dien</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/diponegoro">
+	<a href="/searchjudul/diponegoro">
 	<div class='itemlist'> <h5 id="judul">Diponegoro</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/pitung">
+	<a href="/searchjudul/pitung">
 	<div class='itemlist'> <h5 id="judul">Si Pitung</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/bung tomo">
+	<a href="/searchjudul/bung tomo">
 	<div class='itemlist'> <h5 id="judul">Bung Tomo</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/soedirman">
+	<a href="/searchjudul/soedirman">
 	<div class='itemlist'> <h5 id="judul">Jenderal Soedirman</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/al fatih">
+	<a href="/searchjudul/al fatih">
 	<div class='itemlist'> <h5 id="judul">Muhammad Al Fatih</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/ahmad yani">
+	<a href="/searchjudul/ahmad yani">
 	<div class='itemlist'> <h5 id="judul">Ahmad Yani</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
 
-	<a href="/search/harun ar-rasyid">
+	<a href="/searchjudul/harun ar-rasyid">
 	<div class='itemlist'> <h5 id="judul">Harun Ar-Rasyid</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
 	</a>
-	<a href="/search/tjokroaminoto">
+	<a href="/searchjudul/tjokroaminoto">
 	<div class='itemlist'> <h5 id="judul">H.O.S Tjokroaminoto</h5> 
 		<h4 id="penulis"></h4> 
 	</div>
@@ -279,7 +284,20 @@ document.onkeyup = function(e) {
 };
 
 
+function displaymenu(){
+	var node = document.getElementById("sidebar")
+	node.style.display = "block"
+	var node = document.getElementById("x")
+	node.style.display = "block"
+}
+	
 
+function hidemenu(){
+	var node = document.getElementById("sidebar")
+	node.style.display = "none"
+	var node = document.getElementById("x")
+	node.style.display = "none"
+}
 
 
 

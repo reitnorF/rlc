@@ -17,15 +17,17 @@ $def with (data)
 	<img src="/static/slc_logo.png">	
 	<div id="menus">
 		<a href="/topik"><div class="blockmenu "> Daftar Topik Islam </div></a>
-		<a href="/tokohislam"><div class="blockmenu   "> Biografi Tokoh Islam</div></a>
+		<a href="/tokohislam"><div class="blockmenu "> Biografi Tokoh Islam</div></a>
 		<a href="/umum"><div class="blockmenu  "> Daftar Topik Umum </div></a>
 		<a href="/"><div class="blockmenu active">Daftar Buku</div></a>
 	</div>
 
 </div>
-
+<img id="x" src="/static/x.png" onclick="hidemenu()">
 <div id="topbar">
-<input id="searchbox" type="text" style='display:block' placeholder="Search" onkeypress="search(event)">
+	<img id="logosmall" src="/static/src_logo_small.png" >	
+	<input id="searchbox" type="text" style='display:block' placeholder="Search" onkeypress="search(event)">
+	<img id="bread" src="/static/menu.png" onclick="displaymenu()" >	
 </div>
 
 
@@ -113,6 +115,21 @@ document.onkeyup = function(e) {
 
 
 
+
+function displaymenu(){
+	var node = document.getElementById("sidebar")
+	node.style.display = "block"
+	var node = document.getElementById("x")
+	node.style.display = "block"
+}
+
+
+function hidemenu(){
+	var node = document.getElementById("sidebar")
+	node.style.display = "none"
+	var node = document.getElementById("x")
+	node.style.display = "none"
+}
 
 //Filter list of item, based on search query
 function filter(x){

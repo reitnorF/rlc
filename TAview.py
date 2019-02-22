@@ -72,6 +72,7 @@ for i in TAdb:
 urls = (
 	'/','index',
 	'/search/(.+)','search',
+	'/searchjudul/(.+)','searchjudul',
 	'/topik','topik',
 	'/domain','domain',
 	'/umum','umum',
@@ -88,12 +89,33 @@ class search:
 		TAQueryResult = dict()
 		for i in allOfBook:
 			judulBuku =  allOfBook[i].judul
+			penulisBuku = allOfBook[i].penulis
 			if judulBuku is not None:
 				squeryUP = squery.upper()
+				squeryUP = re.sub(" ","|",squeryUP)
 				judulBukuUP = judulBuku.upper()
+				penulisBukuUP = penulisBuku.upper()
+				judulBukuUP = judulBukuUP + penulisBukuUP
 				if re.search(squeryUP,judulBukuUP):
 					TAQueryResult[i] = allOfBook[i]
-		render = web.template.render('templates')
+		render = web.template.	render('templates')
+		return render.viewtemplate(TAQueryResult)
+
+class searchjudul:
+	def GET(self,squery):
+		TAQueryResult = dict()
+		for i in allOfBook:
+			judulBuku =  allOfBook[i].judul
+			penulisBuku = allOfBook[i].penulis
+			if judulBuku is not None:
+				squeryUP = squery.upper()
+				#squeryUP = re.sub(" ","|",squeryUP)
+				judulBukuUP = judulBuku.upper()
+				penulisBukuUP = penulisBuku.upper()
+				#judulBukuUP = judulBukuUP + penulisBukuUP
+				if re.search(squeryUP,judulBukuUP):
+					TAQueryResult[i] = allOfBook[i]
+		render = web.template.	render('templates')
 		return render.viewtemplate(TAQueryResult)
 
 class topik:

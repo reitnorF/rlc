@@ -22,8 +22,11 @@ $def with (data)
 
 </div>
 
+<img id="x" src="/static/x.png" onclick="hidemenu()">
 <div id="topbar">
-<input id="searchbox" type="text" style='display:block' placeholder="Search" onkeypress="search(event)">
+	<img id="logosmall" src="/static/src_logo_small.png" >	
+	<input id="searchbox" type="text" style='display:block' placeholder="Search" onkeypress="search(event)">
+	<img id="bread" src="/static/menu.png" onclick="displaymenu()" >	
 </div>
 
 
@@ -344,7 +347,20 @@ document.onkeyup = function(e) {
 
 
 
+function displaymenu(){
+	var node = document.getElementById("sidebar")
+	node.style.display = "block"
+		var node = document.getElementById("x")
+	node.style.display = "block"
+}
 
+
+function hidemenu(){
+	var node = document.getElementById("sidebar")
+	node.style.display = "none"
+	var node = document.getElementById("x")
+	node.style.display = "none"
+}
 
 
 
